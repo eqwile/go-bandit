@@ -1,4 +1,4 @@
-module github.com/alextanhongpin/go-bandit
+module github.com/eqwile/go-bandit
 
 go 1.13
 
