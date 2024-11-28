@@ -34,7 +34,7 @@ func (b *EpsilonGreedy) SelectArm(probability float64) int {
 
 	// Exploit
 	if probability > b.Epsilon {
-		return max(b.Rewards...)
+		return maxMean(b.Counts, b.Rewards)
 	}
 
 	// Explore

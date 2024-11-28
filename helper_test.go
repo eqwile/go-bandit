@@ -78,6 +78,25 @@ func TestMax(t *testing.T) {
 	}
 }
 
+func TestMaxMean(t *testing.T) {
+	assert := assert.New(t)
+
+	tests := []struct {
+		counts   []int
+		params   []float64
+		expected int
+	}{
+		{[]int{1, 2, 3, 4, 5}, []float64{1.1, 2.1, 3.1, 4.1, 5.1}, 0},
+		{[]int{}, []float64{}, 0},
+		{[]int{1, 1}, []float64{-1, 1}, 1},
+		{[]int{1, 2}, []float64{10, 30}, 1},
+	}
+
+	for _, tt := range tests {
+		assert.Equal(tt.expected, maxMean(tt.counts, tt.params), "should return the max index")
+	}
+}
+
 func TestCategoricalProb(t *testing.T) {
 	assert := assert.New(t)
 

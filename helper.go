@@ -39,6 +39,18 @@ func max(values ...float64) (index int) {
 	return
 }
 
+func maxMean(counts []int, rewards []float64) (index int) {
+	value := math.Inf(-1)
+	for i := range counts {
+		mean := rewards[i] / float64(counts[i])
+		if mean > value {
+			value = mean
+			index = i
+		}
+	}
+	return
+}
+
 func categoricalProb(probability float64, probs ...float64) int {
 	var cumulativeProb float64
 	for i := 0; i < len(probs); i++ {
