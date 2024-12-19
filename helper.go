@@ -42,6 +42,10 @@ func max(values ...float64) (index int) {
 func maxMean(counts []int, rewards []float64) (index int) {
 	value := math.Inf(-1)
 	for i := range counts {
+		if counts[i] == 0 {
+			continue
+		}
+
 		mean := rewards[i] / float64(counts[i])
 		if mean > value {
 			value = mean
